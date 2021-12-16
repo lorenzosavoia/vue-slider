@@ -24,16 +24,14 @@ const app = new Vue({
             }
         },
         autoplay: function () {
-            setInterval(myTimer,3000);
+            
+            this.timer = setInterval (() => {
+                this.next();
+            },3000);
 
-            function mytimer() {
-                this.counter += 1;
-                if (this.counter > this.images.length - 1) {
-                    this.counter = 0;
-                }
-                
-            }
-
+        },
+        stop: function () {
+            clearTimeout(this.timer);
         }
     }
 })
